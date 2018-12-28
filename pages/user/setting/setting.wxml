@@ -1,1 +1,55 @@
+<view class='container'>
+  <!-- <view class='notification-container'>
+    <text>消息提醒</text>
+    <switch checked='{{whether_template == 1}}' color='#5ee1c9' bindchange='onSwitchChange'/>
+  </view> -->
 
+
+  <view class='advice-container'>
+    <text style='font-size:32rpx;color:#373f3d'>意见反馈</text>
+    <text style='display:block;font-size:28rpx;color:#e3ebe9;margin-top:10rpx;'>您愿意将背呗背单词推荐给好友使用吗？</text>
+    <view class='advice-input-container'>
+      <textarea placeholder='请输入意见或建议' bindinput='AreaInputListener' bindtap='onFocusArea' focus='{{focus_area}}'></textarea>
+      <view class='advice-stars-container'>
+        <view class='advice-stars' bindtap='onStarTap' id='1'>
+          <image wx:if="{{select == 1}}" src='/images/ic_star_selected.png'></image>
+          <image wx:else src='/images/ic_star_unselected.png'></image>
+          <text>1分</text>
+        </view>
+        <view class='advice-stars' style='margin-left:50rpx;' bindtap='onStarTap' id='2'>
+          <image wx:if="{{select == 2}}" src='/images/ic_star_selected.png'></image>
+          <image wx:else src='/images/ic_star_unselected.png'></image>
+          <text>3分</text>
+        </view>
+
+        <view class='advice-stars' style='margin-left:50rpx;' bindtap='onStarTap' id='3'>
+          <image wx:if="{{select == 3}}" src='/images/ic_star_selected.png'></image>
+          <image wx:else src='/images/ic_star_unselected.png'></image>
+          <text>6分</text>
+        </view>
+
+        <view class='advice-stars' style='margin-left:50rpx;' bindtap='onStarTap' id='4'>
+          <image wx:if="{{select == 4}}" src='/images/ic_star_selected.png'></image>
+          <image wx:else src='/images/ic_star_unselected.png'></image>
+          <text>10分</text>
+        </view>
+      </view>
+
+    </view>
+
+  </view>
+
+  <view class='contact-container'>
+
+    <text style='display:block;font-size:28rpx;color:#e3ebe9;margin-top:10rpx;margin-left:25rpx'>输入有效的联系方式以便开发者联系你（选填）</text>
+    <view class='contact-input-container'>
+      <text>联系方式</text>
+      <input placeholder='邮箱/手机号' bindinput='InputListener' bindtap='onFocusInput' focus='{{focus_input}}'></input>
+    </view>
+  </view>
+
+  <button class='submit-button-container' style='color:white' bindtap='onSubmitTap'>
+    提交
+  </button>
+
+</view>
