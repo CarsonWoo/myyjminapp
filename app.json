@@ -1,0 +1,48 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/home/sign/sign",
+    "pages/home/feed/feed",
+    "pages/home/word_list/word_list",
+    "pages/home/prize/prize",
+    "pages/home/word/word_detail/word_detail",
+    "pages/home/word/word",
+    "pages/user/plan/plan",
+    "pages/user/setting/setting",
+    "pages/user/user",
+    "pages/discover/discover",
+    "pages/index/index",
+    "pages/home/word/word_detail/edit_note/edit_note",
+    "pages/home/prize/prize_result",
+    "pages/discover/web/web"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#bff4ea",
+    "navigationBarTitleText": "背呗背单词",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#5ee1c9",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页",
+        "iconPath": "images/home_unselected.png",
+        "selectedIconPath": "images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/discover/discover",
+        "text": "发现",
+        "iconPath": "images/discover_unselected.png",
+        "selectedIconPath": "images/discover_selected.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "images/user_unselected.png",
+        "selectedIconPath": "images/user_selected.png"
+      }
+    ]
+  }
+}
