@@ -1,0 +1,114 @@
+<view class='container'>
+  <text style='display:absolute;text-decoration:underline;font-size:28rpx;position:absolute;right:20rpx;margin-top:20rpx;color:#888;' bindtap='onPassTap'>Pass</text>
+
+  <view class='word-info-container' bindtap='onPronunciationTap'>
+    <audio id='audio'></audio>
+    <text class='word-info-basic-meaning'>{{basic_meaning}}</text>
+    <text class='word-info-word'>{{word}}</text>
+    <view class='word-info-symbol-sound-container'>
+      <text>{{word_symbol}}</text>
+      <image src='/images/play_sound_min.png'></image>
+    </view>
+
+    <label class='label-section' style='margin-top:30rpx;'>英文释义</label>
+
+    <text class='paraphrase'>{{paraphrase}}</text>
+
+    <label class='label-section'>中文释义</label>
+
+    <text class='ch-meaning' wx:for="{{meaningList}}">{{item}}</text>
+  </view>
+
+  <label class='label-section' style='background-color:#f9fcfc;'>语境</label>
+  <view class='tv-container'>
+    <image class='tv-container-image' src='{{pic}}' bindtap='onSentenceAudioTap'></image>
+
+    <view class='tv-sentence-container' bindtap='onSentenceAudioTap'>
+      <view class='tv-sub-sentence-container'>
+        <rich-text nodes="{{sentence}}"></rich-text>
+        <text class='tv-sentence-meaning'>{{sentence_cn}}</text>
+      </view>
+      <image src='/images/play_sound_min.png'></image>
+    </view>
+
+    <view class='tv-video-list'>
+      <block wx:for="{{video_info}}">
+        <view class='tv-video-container' bindtap='onVideoTap' id='{{index}}'>
+          <image class='tv-container-image' src='{{item.img}}'></image>
+          <image class='tv-container-video-image' src='/images/video_play.png'></image>
+        </view>
+      </block>
+    </view>
+
+
+  </view>
+  <label class='label-section' style='background-color:#f9f9f9'>其他例句</label>
+  <view class='other-sentences-container' wx:for="{{video_info}}">
+    <view class='other-sub-container' bindtap='onSampleSentenceTap' id='{{index}}'>
+      <view class='sentence-meaning-container'>
+        <rich-text nodes="{{item.sentence}}"></rich-text>
+        <text style='font-size:26rpx'>{{item.translation}}</text>
+      </view>
+
+      <image src='/images/play_sound_min.png'></image>
+
+    </view>
+
+
+  </view>
+
+  <label class='label-section' style='background-color:#f9f9f9'>单词笔记</label>
+  <text class='add-note-container' catchtap='onNoteTap'>{{note?'查看':'添加'}}单词笔记</text>
+
+  <label class='label-section' style='text-decoration:underline' bindtap='onShowDialog'>修改/上传</label>
+
+</view>
+
+<view class='next-button-container' style='visibility:invisible;' wx:if="{{isShowVideo == true}}">
+  <text>Next</text>
+</view>
+<view class='next-button-container' bindtap='onNextTap' wx:else>
+  <text>Next</text>
+</view>
+
+<view class='video-container' wx:if="{{isShowVideo}}">
+  <image src='/images/ic_close.png' bindtap='onCloseVideo'></image>
+  <view class='video-sub-container'>
+
+    <video id='my_video' src='{{video_url}}' poster='{{video_poster}}' autoplay='true' controls='true' bindended='onVideoEnd' bindtimeupdate='onVideoUpdate' bindfullscreenchange='onFullScreenChange' custom-cache="{{false}}">
+    </video>
+
+    <cover-view class='subtitle-container' style="margin-top:{{fullScreen?'95rpx':'0rpx'}}">
+      <cover-view class='subtitle-en'>{{en}}</cover-view>
+      <cover-view class='subtitle-cn'>{{cn}}</cover-view>
+    </cover-view>
+
+  </view>
+
+
+</view>
+
+<view class='edit-dialog-container' wx:if="{{isShowDialog}}" catchtouchmove='stopPageScroll'>
+  <!-- <view class='mask' catchtouchmove='stopPageScroll'></view> -->
+
+  <view class='edit-dialog' >
+    <image src='/images/ic_close_gray.png' catchtap='onCloseDialog'></image>
+    <view style='display:flex;flex-direction:row;' bindtap='onShowChoice'>
+      <text class='selected-text'>{{edit_choice}}</text>
+      <canvas canvas-id='selector_id'></canvas>
+    </view>
+    <view wx:if="{{show_choice == true}}">
+      <block>
+        <view class='choice-container'>
+          <text wx:for="{{edit_choices}}" data-selected='{{item}}' bindtap='onSelectText'>{{item}}</text>
+        </view>
+      </block>
+      <view style='height:360rpx;'></view>
+    </view>
+
+    <textarea wx:else auto-focus='true' placeholder='请输入修改的内容' bindinput='bindTextAreaBlur' value='{{text_area_text}}' fixed='true'></textarea>
+    <view class='submit-container' catchtap='onSubmitTap'>提交</view>
+
+  </view>
+
+</view>
