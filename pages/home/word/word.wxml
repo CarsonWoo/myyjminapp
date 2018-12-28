@@ -1,0 +1,138 @@
+<view class='container'>
+  <!-- <text class='header-container-left'></text> -->
+  <view class='header-container-right' >
+    <text style='text-align:start;color:#b8b8b8;'>{{progress_text}}</text>
+    <text style='text-align:end;text-decoration: underline;float:right' catchtap='onPassTap'>Pass</text>
+  </view>
+
+  <view class='progress-container'>
+    <view class='progress' style='width:{{progressPercentage}}%'></view>
+  </view>
+
+  <view class='word-sentence'>
+    <rich-text nodes="{{targetSentence}}" bindtap='onSentenceTap'></rich-text>
+  </view>
+
+  <view style='background-color:#e8e8e8;height:1px;margin-top:20rpx;margin-left:25rpx;margin-right:25rpx;'></view>
+
+  <view class='word-symbol-container' bindtap='onWordTap'>
+    <text class='word'>{{word}}</text>
+    <text class='symbol'>{{word_symbol}}</text>
+  </view>
+
+  <view class='word-meaning-container'>
+    <text>{{tips_text}}</text>
+  </view>
+
+  <view class='choose-container' wx:if="{{wordType == 'TYPE_GRAPH'}}">
+    <view class='graph-container'>
+      <view class='judge-graph-container' bindtap='onSelectGraphItem' id='1'>
+        <block wx:if="{{selectPos == 1}}">
+          <image class='judge-graph-container-image' src='{{img_path_first}}' style='opacity:0.5'></image>
+          <image class='judge' src='/images/graph_correct.png' wx:if="{{correctAnswer == 1}}" animation="{{animationData}}"></image>
+          <image class='judge' src='/images/graph_wrong.png' wx:else animation="{{animationData}}"></image>
+        </block>
+        <block wx:else>
+          <image class='judge-graph-container-image' src='{{img_path_first}}' wx:if="{{correctAnswer == 1}}"></image>
+          <image class='judge-graph-container-image' src='{{img_path_first}}' wx:else ></image>
+        </block>
+      </view>
+
+      <view class='judge-graph-container' bindtap='onSelectGraphItem' id='2'>
+        <block wx:if="{{selectPos == 2}}">
+          <image class='judge-graph-container-image' src='{{img_path_second}}' style='opacity:0.5'></image>
+          <image class='judge' src='/images/graph_correct.png' wx:if="{{correctAnswer == 2}}" animation="{{animationData}}"></image>
+          <image class='judge' src='/images/graph_wrong.png' wx:else animation="{{animationData}}"></image>
+        </block>
+        <block wx:else>
+          <image class='judge-graph-container-image' src='{{img_path_second}}' wx:if="{{correctAnswer == 2}}"></image>
+          <image class='judge-graph-container-image' src='{{img_path_second}}' wx:else></image>
+        </block>
+      </view>
+      <view class='judge-graph-container' bindtap='onSelectGraphItem' id='3'>
+        <block wx:if="{{selectPos == 3}}">
+          <image class='judge-graph-container-image' src='{{img_path_third}}' style='opacity:0.5'></image>
+          <image class='judge' src='/images/graph_correct.png' wx:if="{{correctAnswer == 3}}" animation="{{animationData}}"></image>
+          <image class='judge' src='/images/graph_wrong.png' wx:else animation="{{animationData}}"></image>
+        </block>
+        <block wx:else>
+          <image class='judge-graph-container-image' src='{{img_path_third}}' wx:if="{{correctAnswer == 3}}"></image>
+          <image class='judge-graph-container-image' src='{{img_path_third}}' wx:else></image>
+        </block>
+      </view>
+      <view class='judge-graph-container' bindtap='onSelectGraphItem' id='4'>
+        <block wx:if="{{selectPos == 4}}">
+          <image class='judge-graph-container-image' src='{{img_path_fourth}}' style='opacity:0.5'></image>
+          <image class='judge' src='/images/graph_correct.png' wx:if="{{correctAnswer == 4}}" animation="{{animationData}}"></image>
+          <image class='judge' src='/images/graph_wrong.png' wx:else animation="{{animationData}}"></image>
+        </block>
+        <block wx:else>
+          <image class='judge-graph-container-image' src='{{img_path_fourth}}' wx:if="{{correctAnswer == 4}}"></image>
+          <image class='judge-graph-container-image' src='{{img_path_fourth}}' wx:else></image>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view wx:else class='choose-container' style='margin: 45rpx 0 0 0;'>
+    <view class='text-container'>
+      <block wx:if="{{selectPos == 1}}">
+        <view class='judge-text-container'>
+          <text style='opacity:0.5'>{{text_path_first}}</text>
+          <image src='/images/graph_correct.png' wx:if="{{correctAnswer == 1}}"></image>
+          <image src='/images/graph_wrong.png' wx:else></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='judge-text-container' bindtap='onSelectTextItem' id='1'>
+          <text>{{text_path_first}}</text>
+        </view>
+      </block>
+
+      <block wx:if="{{selectPos == 2}}">
+        <view class='judge-text-container'>
+          <text style='opacity:0.5'>{{text_path_second}}</text>
+          <image src='/images/graph_correct.png' wx:if="{{correctAnswer == 2}}"></image>
+          <image src='/images/graph_wrong.png' wx:else></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='judge-text-container' bindtap='onSelectTextItem' id='2'>
+          <text>{{text_path_second}}</text>
+        </view>
+      </block>
+
+      <block wx:if="{{selectPos == 3}}">
+        <view class='judge-text-container'>
+          <text style='opacity:0.5'>{{text_path_third}}</text>
+          <image src='/images/graph_correct.png' wx:if="{{correctAnswer == 3}}"></image>
+          <image src='/images/graph_wrong.png' wx:else></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='judge-text-container' bindtap='onSelectTextItem' id='3'>
+          <text>{{text_path_third}}</text>
+        </view>
+      </block>
+
+      <block wx:if="{{selectPos == 4}}">
+        <view class='judge-text-container'>
+          <text style='opacity:0.5'>{{text_path_fourth}}</text>
+          <image src='/images/graph_correct.png' wx:if="{{correctAnswer == 4}}"></image>
+          <image src='/images/graph_wrong.png' wx:else></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='judge-text-container' bindtap='onSelectTextItem' id='4'>
+          <text>{{text_path_fourth}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+<view class='sound-container' bindtap='onSoundClick'>
+  <audio id='audio'></audio>
+  <image src='/images/word_play_sound.png'></image>
+</view>
+
+
+<!-- <cover-view class='toast' wx:if="{{showReviewToast}}">下面开始复习噢~</cover-view> -->
