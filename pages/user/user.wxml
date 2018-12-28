@@ -1,1 +1,97 @@
+<view class='user_background'>
+  <view class='portrait_container'>
+    <!-- <view class='setting-image'>
+      <image bindtap='onSettingTap' src='/images/ic_setting.png'></image>
+    </view> -->
+    <cover-image wx:if="{{!isShowAuthSetting}}" class='cover-image' src='{{user_portrait}}' mode='aspectFit' catchtap='onShowAuthDialog'></cover-image>
+    <text class='user-nickname' wx:if="{{!isShowAuthSetting}}">{{nickName}}</text>
+    <view class='user-info'>
+      <view class='user-info-item'>
+        <text style='font-size:40rpx'>{{insist_day}}</text>
+        <text style='font-size:26rpx'>坚持天数</text>
+      </view>
+      <view class='divider'></view>
+      <view class='user-info-item'>
+        <text style='font-size:40rpx'>{{learned_word}}</text>
+        <text style='font-size:26rpx'>已背单词</text>
+      </view>
+      <view class='divider'></view>
+      <view class='user-info-item'>
+        <text style='font-size:40rpx'>{{remaining_words}}</text>
+        <text style='font-size:26rpx'>剩余词数</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class='plan-scroll-container'>
+  <!-- <view style='display:inline-block;overflow:scroll;width:100%'> -->
+  <block wx:for="{{have_plan}}">
 
+    <view class='plan-item' bindtap='onChangePlan' catch:longpress='onEditPlan' id='{{index}}' data-plan='{{item.plan}}' data-learned_word='{{item.learned_word}}' style='border-width:1px;border-color:{{index==0?"#5ee1c9":""}};border-style:{{index==0?"solid":""}}'>
+      <view wx:if="{{index == 0}}">
+        <image style='width:40rpx; height:40rpx; margin-left:100rpx;margin-top:15rpx;' src='/images/fish_plan.png'></image>
+      </view>
+      <text class='plan-name' style='margin-top:{{index == 0?"10rpx":"70rpx"}}'>{{item.plan}}</text>
+      <text class='plan-word-count'>{{item.word_number}}单词</text>
+      <view class='plan-progress'>
+        <view style='background-color:#5ee1c9;width:{{item.learned_word * 190 / item.word_number}}rpx;height:8rpx;border-radius:10px;'></view>
+      </view>
+    </view>
+  </block>
+  <view class='plan-item' style='background-color:#efefef;margin-right:20rpx;' bindtap='onAddPlanTap'>
+    <text style='display:block;margin-top:70rpx;font-size:60rpx;color:#b0b0b0;text-align:center;width:240rpx;'>+\n</text>
+    <text style='font-size:20rpx;display:block;text-align:center;color:#b0b0b0;margin-top:10rpx;width:240rpx;'>添加学习计划</text>
+  </view>
+
+  <!-- </view> -->
+
+</view>
+<view class='item-container'>
+  <view class='item' catchtap='onWalletTap'>
+    <image src='/images/ic_wallet.png'></image>
+    <text>我的钱包</text>
+    <image src='/images/ic_arrow.png' style='width:36rpx;height:36rpx;position:absolute;right:50rpx'></image>
+  </view>
+  <view class='item' catchtap='onSettingTap'>
+    <image src='/images/ic_advice.png'></image>
+    <text>用户反馈</text>
+    <image src='/images/ic_arrow.png' style='width:36rpx;height:36rpx; position:absolute;right:50rpx'></image>
+  </view>
+  <view class='item'>
+    <image src='/images/ic_notice.png'></image>
+    <text>消息通知</text>
+    <switch checked='{{whether_template == 1}}' color='#5ee1c9' bindchange='onSwitchChange' style='position:absolute;right:50rpx;'></switch>
+  </view>
+</view>
+
+<view wx:if="{{isShowDialog}}" class='dialog' catchtouchmove='stopPageScroll'>
+  <view class='dialog-container'>
+    <block wx:if="{{longpress}}">
+      <text>你已经过招了{{learned_word}}个单词啦，现在{{alert_type == 1?'重置':'删除'}}可就无法挽回了哦~</text>
+      <view class='button-container'>
+        <view class='cancel' bindtap='onCancelDialog'>算了</view>
+        <view class='confirm' bindtap='onConfirmEditDialog' data-plan='{{tmpSelected}}'>{{alert_type == 1?'重置':'删除'}}</view>
+      </view>
+    </block>
+    <block wx:else>
+      <text>{{alert_type == 1?'选中的已经是学习中的计划了噢~~':'确定选择该计划作为正在学习中的计划吗~~'}}</text>
+      <view class='button-container'>
+        <view class='cancel' bindtap='onCancelDialog'>算了</view>
+        <view class='confirm' bindtap='onConfirmChange' data-plan='{{tmpSelected}}'>{{alert_type == 1?'收到':'是哒'}}</view>
+      </view>
+    </block>
+  </view>
+</view>
+
+<cover-view class='get-user-info-dialog' wx:if="{{isShowAuthSetting}}" bindtap='onCloseAuthDialog'>
+  <cover-image class='auth-portrait' src='{{user_portrait}}'></cover-image>
+  <button open-type='getUserInfo' bindgetuserinfo="getUserInfo"> 获取微信头像 </button>
+
+</cover-view>
+
+<view class='dialog' wx:if="{{isShowWalletDialog}}" catchtouchmove='stopPageScroll'>
+  <cover-view class='money-dialog-container'>
+    <cover-image src='/images/ic_dialog_unreach.png'></cover-image>
+    <cover-view class='money-dialog-text'>背呗正在通宵策划该活动~~</cover-view>
+  </cover-view>
+</view>
