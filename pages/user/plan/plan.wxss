@@ -1,0 +1,92 @@
+.container {
+  /* position: fixed; */
+  top: 0;
+  left: 0;
+  /* opacity: 0.2; */
+  overflow: scroll;
+  z-index: 1000;
+}
+
+page {
+  background-color: #fbffff;
+}
+
+.plan-item {
+  width: 220rpx;
+  height: 270rpx;
+  margin: 20rpx 10rpx 20rpx 10rpx;
+  align-items: center;
+  box-shadow: 1.5px 2px 1px #ececec;
+  border-radius: 10rpx;
+  display: inline-block;
+  background-color: white;
+}
+
+.plan-name {
+  max-height: 60rpx;
+  font-size: 26rpx;
+  text-align: center;
+  align-items: center;
+  /* white-space: pre-line; */
+  margin-top: 90rpx;
+  /* line-height: 2rpx; */
+  display: block;
+  font-weight: bold;
+}
+
+.plan-word-count {
+  font-size: 22rpx;
+  text-align: center;
+  display: block;
+  margin-top: 60rpx;
+  color: #c0c0c0;
+}
+
+.plan-chooser-container {
+  width: 100%;
+  background-color: white;
+  position: fixed;
+  overflow: hidden;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  text-align: center;
+  font-size: 34rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.indicator-class {
+  height: 70rpx;
+  /* background-color: #d2f3ed; *//* color: #5ee1c0; */
+}
+
+.confirm-button {
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #ff8094;
+  background-color: #f8fbfb;
+  text-align: end;
+  padding-right: 25rpx;
+  line-height: 80rpx;
+}
+
+.plan-detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.picker-label {
+  display: flex;
+  flex-direction: row;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.picker-label view {
+  width: 50%;
+  height: 70rpx;
+  line-height: 70rpx;
+}
