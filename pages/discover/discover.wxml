@@ -1,0 +1,52 @@
+<!--pages/discover/discover.wxml-->
+<view class='container'>
+  <!-- <view class='daily-card-container'>
+  </view> -->
+  <swiper previous-margin='60rpx' next-margin='30rpx' current='{{currentPos}}' bindchange='onSwiperChange'>
+    <block wx:for="{{card_list}}">
+      <swiper-item>
+        <view class='icon'>
+          <cover-image class='icon' src='/images/ic_download.png' catchtap='onDownloadTap' data-url='{{item.daily_pic}}'></cover-image>
+          <image src='{{item.daily_pic}}'></image>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <ad unit-id="adunit-a8e6b7e4a651af7b" style="margin-bottom:20rpx;"></ad>
+  <view class='discover-item-container'>
+    <view class='discover-item' style='margin-left:2rpx;margin-right:1rpx;border-top-left-radius: 20rpx;border-bottom-left-radius: 20rpx' catchtap='onShowDialog' id='1'>
+      <image src='/images/ic_tv.png'></image>
+      <text>背呗TV</text>
+    </view>
+    <view class='discover-item' style='margin-right:1rpx;margin-left:1rpx' catchtap='onMiddleClick'>
+      <image src='/images/ic_challenge.png'></image>
+      <text>单词挑战</text>
+    </view>
+    <view class='discover-item' style='margin-left:1rpx;border-top-right-radius: 20rpx;border-bottom-right-radius: 20rpx' catchtap='onShowDialog' id='2'>
+      <image src='/images/ic_read.png'></image>
+      <text>背呗阅读</text>
+    </view>
+  </view>
+</view>
+
+<view class='dialog' wx:if="{{isShowDialog}}" catchtouchmove='stopPageScroll'>
+  <view class='dialog-container' wx:if="{{isShowDialog && !isMiddleClick}}">
+    <block wx:if="{{alert_type == 1}}">
+      <image src='/images/ic_tv_group.png'></image>
+      <text>下载背呗背单词，透过语境记住单词！</text>
+    </block>
+    <block wx:else>
+      <image src='/images/ic_read_group.png'></image>
+      <text>下载背呗背单词，阅读一篇篇实用好文！</text>
+    </block>
+    <view class='choose-container'>
+      <view class='cancel' bindtap='onCloseDialog'>取消</view>
+      <view class='download' bindtap='toWebView'>去下载</view>
+    </view>
+  </view>
+
+  <view class='money-dialog-container' wx:if="{{isShowDialog && isMiddleClick}}">
+    <image src='/images/ic_dialog_unreach.png'></image>
+    <text>背呗正在通宵策划该活动~~</text>
+  </view>
+</view>

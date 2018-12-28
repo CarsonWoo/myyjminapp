@@ -1,0 +1,193 @@
+.container {
+  background-color: #f7fcfb;
+  align-items: center;
+  z-index: 1000;
+  padding-bottom: 20rpx;
+}
+
+swiper {
+  padding-top: 30rpx;
+  margin-bottom: 30rpx;
+  height: 1055rpx;
+  /* margin-right: 45rpx; */
+}
+
+.icon image {
+  width: 625rpx;
+  height: 1050rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 3px 1px #c2c2c2;
+}
+
+.icon cover-image {
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  right: 65rpx;
+  top: 25rpx;
+  border-style: none;
+}
+
+swiper-item image {
+  width: 625rpx;
+  height: 905rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 3px 1px #c2c2c2;
+}
+
+.daily-card-container {
+  /* display: -webkit-box;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch; */
+  align-items: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-right: 45rpx;
+}
+
+.daily-card-container image {
+  width: 625rpx;
+  height: 965rpx;
+  margin-left: 15rpx;
+  margin-right: 15rpx;
+  border-radius: 20rpx;
+}
+
+.discover-item-container {
+  width: 710rpx;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  background-color: #f3f3f3;
+  border-radius: 20rpx;
+  box-shadow: 0 2px 1px #e6e6e6;
+  margin-bottom: 30rpx;
+  margin-left: 20rpx;
+}
+
+.discover-item {
+  width: 234rpx;
+  height: 100%;
+  text-align: center;
+  align-items: center;
+  background-color: white;
+}
+
+.discover-item image {
+  width: 140rpx;
+  height: 140rpx;
+  float: left;
+  margin-left: 52rpx;
+  margin-top: 10rpx;
+}
+
+.discover-item text {
+  font-size: 28rpx;
+  color: #0f0f0f;
+  line-height: 60rpx;
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  width: 520rpx;
+  /* height: 600rpx; */
+  position: fixed;
+  top: 50%;
+  margin-top: -300rpx;
+  left: 50%;
+  margin-left: -260rpx;
+  background-color: white;
+  border-radius: 8px;
+  z-index: 2000;
+}
+
+.dialog-container image {
+  width: 429rpx;
+  height: 301rpx;
+  margin-left: 60rpx;
+  margin-top: 60rpx;
+}
+
+.dialog-container text {
+  font-size: 28rpx;
+  margin-top: 25rpx;
+  margin-bottom: 25rpx;
+  margin-left: 75rpx;
+  margin-right: 75rpx;
+  text-align: center;
+}
+
+.choose-container {
+  width: 100%;
+  background-color: #eee;
+  padding-top: 2rpx;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  align-items: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.cancel {
+  font-size: 30rpx;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  color: #bbb;
+  background-color: white;
+  margin-right: 1rpx;
+  width: 50%;
+  border-bottom-left-radius: 8px;
+}
+
+.download {
+  font-size: 30rpx;
+  color: #f75458;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+  width: 50%;
+  background-color: white;
+  margin-left: 1rpx;
+  border-bottom-right-radius: 8px;
+}
+
+.money-dialog-container {
+  display: flex;
+  position: fixed;
+  width: 500rpx;
+  left: 50%;
+  margin-left: -250rpx;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 30rpx;
+  top: 50%;
+  margin-top: -260rpx;
+  border-radius: 20px;
+}
+
+.money-dialog-container image {
+  width: 310rpx;
+  height: 265rpx;
+  margin-top: 20rpx;
+  margin-bottom: 35rpx;
+  margin-left: 95rpx;
+}
+
+.money-dialog-container text {
+  font-size: 28rpx;
+}
+
+.dialog {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(141, 141, 141, 0.5);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
