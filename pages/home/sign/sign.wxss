@@ -1,0 +1,139 @@
+page {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+
+.container {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+/* .container image {
+  width: 100%;
+  height: 100%;
+} */
+
+.button-container {
+  position: fixed;
+  bottom: 60rpx;
+  margin-left: 55rpx;
+  margin-right: 55rpx;
+  width: 640rpx;
+}
+
+.button {
+  width: 100%;
+  height: 90rpx;
+  border-radius: 25px;
+  background: linear-gradient(to right, #829df7, #73bae3, #65d5d2);
+  font-size: 36rpx;
+  text-shadow: 0.5px 0.5px 0.1px whitesmoke;
+  line-height: 90rpx;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.button-container cover-image {
+  width: 140rpx;
+  height: 120rpx;
+  position: fixed;
+  margin-left: 30rpx;
+  bottom: 70rpx;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-top: 10rpx;
+  justify-content: center;
+  text-align: center;
+  font-size: 30rpx;
+  color: #6b7176;
+}
+
+.title image {
+  width: 335rpx;
+  height: 253rpx;
+}
+
+.calendar-container {
+  width: 620rpx;
+  margin-left: 65rpx;
+  margin-right: 65rpx;
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 3px 2px 3px 2px #f0f0f0;
+  border-radius: 6px;
+  padding-bottom: 20rpx;
+}
+
+.shadow {
+  width: 100%;
+  background-color: rgba(190, 190, 190, 0.027);
+  min-height: 300rpx;
+  border-radius: 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  align-items: center;
+}
+
+.calendar-month-year {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: bold;
+  color: #838383;
+  text-shadow: 1px 0 1px #8f8f8f;
+  margin-top: 15rpx;
+}
+
+.calendar-week-container {
+  text-align: center;
+  font-size: 20rpx;
+  color: #6b7176;
+  display: flex;
+  flex-direction: row;
+  margin-top: 40rpx;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+.calendar-week-container text {
+  width: 14.7%;
+}
+
+.calendar-day-container {
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 20rpx;
+  line-height: 50rpx;
+  display: flex;
+  flex-direction: row;
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+.calendar-day-container text {
+  width: 14.7%;
+  text-shadow: 1px 1px 0px #c4d3d3;
+}
+
+.image-container {
+  width: 14.7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-container image {
+  height: 48rpx;
+  width: 52rpx;
+}
+
+

@@ -1,0 +1,49 @@
+<view class='container'>
+  <view class='title'>
+    <image src='/images/bg_sign.png'></image>
+    <block wx:if="{{is_sign}}">
+      <text wx:if="{{word_challenge_status == 2}}">成功挑战天数<text style='color:#ff6174'>+1</text>\n本期挑战已打卡<text style='color:#ff6174'>{{clock_list.length}}</text>天</text>
+      <text wx:else>成功打卡天数<text style='color:#ff6174'>+1</text>\n你已打卡<text style='color:#ff6174'>{{clock_list.length}}</text>天</text>
+    </block>
+    <block wx:else>
+      <text wx:if="{{word_challenge_status == 2}}">单词计划完成啦~\n记得打卡完成今日挑战哦~</text>
+      <text wx:else>今日计划完成啦~\n打卡记录一下吧~~</text>
+    </block>
+  </view>
+
+  <view class='calendar-container'>
+    <view class='calendar-month-year'>{{month}} {{year}}</view>
+    <view class='calendar-week-container'>
+      <text>MON</text>
+      <text>TUE</text>
+      <text>WED</text>
+      <text>THU</text>
+      <text>FRI</text>
+      <text>SAT</text>
+      <text>SUN</text>
+    </view>
+    <block wx:for="{{weekList}}">
+      <view class='calendar-day-container'>
+        <block wx:for="{{item}}">
+          <text wx:if="{{item != '*'}}">{{item}}</text>
+          <view wx:else class='image-container'>
+            <image src='/images/ic_sign_{{index + 1}}.png'></image>
+          </view>
+        </block>
+      </view>
+    </block>
+  </view>
+  <form report-submit='true'>
+    <view class='button-container'>
+      <button class='button' open-type='share' form-type='submit' style='color:white; background:{{is_sign ? "#5ee1c9" : ""}}' wx:if="{{!is_sign}}">{{word_challenge_status == 2 ? '打卡赢挑战' : '打卡赢奖品'}}</button>
+      <button class='button' style='background:#5ee1c9'  wx:else catchtap='onFeedScroll'>阅读学习干货</button>
+      <block wx:if="{{is_sign}}">
+        <cover-image src='/images/fish_plan.png' style='width:140rpx;height:140rpx'></cover-image>
+      </block>
+      <block wx:else>
+        <cover-image src='/images/ic_coin.png' wx:if="{{word_challenge_status == 2}}"></cover-image>
+        <cover-image src='/images/ic_prize.png' wx:else></cover-image>
+      </block>
+    </view>
+  </form>
+</view>
