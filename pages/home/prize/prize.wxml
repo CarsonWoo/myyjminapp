@@ -1,0 +1,64 @@
+<view class='container' style="opacity:{{isShowDialog?'0.5':'1'}}">
+  <image class='bg-image' src='/images/bg_prize.png' mode='widthFix' />
+  <!-- <view class='rule-container' bindtap='onRuleTap'>
+    活动规则
+  </view> -->
+  <view class='rule-container' style='position:fixed;top:270rpx;'>
+    <text>1.每人每天只有一次抽奖机会\n2.当天打卡到微信群即算参与抽奖\n3.次日中午12点自动开奖，微信服务通知\n    告知开奖结果\n4.本活动最终解释权归背呗背单词所有</text>
+  </view>
+  <view class='content-container'>
+    <view class='main-container'>
+
+      <view class='prize-info-container'>
+        <view class='prize-info-text'>
+          <text class='prize-title'>今日奖品</text>
+          <text class='prize-name'>{{prize}}</text>
+        </view>
+        <image src='{{prize_pic}}'></image>
+      </view>
+
+      <view class='countdown-container'>
+        <text>距离活动结束还有：</text>
+        <text style='color:rgb(218, 124, 124)'>{{hours}}:{{minutes}}:{{seconds}}</text>
+      </view>
+
+      <view bindtap='onJoinEvent' wx:if="{{level<2}}">
+        <form report-submit='true' bindsubmit='onPostChance'>
+          <button class='join-button-container' form-type='submit' style='color:white'>马上参与活动</button>
+        </form>
+      </view>
+      <view class='join-button-container' style='background-color:#d9d9d9;box-shadow: 0 3px 2px #c5c5c5;' wx:else>
+        <text>您已参加今日活动</text>
+      </view>
+
+    </view>
+
+    <view class='sub-container'>
+      <view class='sub-title'>
+        <image></image>
+        <text>奖品预告</text>
+        <image></image>
+      </view>
+
+      <image src='{{prize_tomorrow_pic}}'></image>
+      <text>{{prize_tomorrow}}</text>
+    </view>
+  </view>
+
+
+</view>
+
+
+<view wx:if="{{isShowDialog}}" class='dialog-container'>
+
+  <view class='dialog-rule-container'>
+    <image src='/images/ic_close_gray.png' bindtap='onCloseDialog'></image>
+    <view class='rule-header'>
+      <view class='line'></view>
+      <text>活动规则</text>
+      <view class='line'></view>
+    </view>
+    <text>1.每人每天只有一次抽奖机会；\n2.当天打卡到微信群即算参与抽奖；\n3.次日中午12点自动开奖，微信服务通知告知开奖结果；\n4.本活动最终解释权归背呗背单词所有。</text>
+    <view class='button-container' bindtap='onCloseDialog'>确定</view>
+  </view>
+</view>

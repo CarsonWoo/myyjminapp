@@ -1,0 +1,239 @@
+page {
+  height: 100%;
+  background-color: #f9f9f9;
+}
+
+.bg-image {
+  /* height: 600rpx; */
+  position: absolute;
+  /* float: left; */
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+}
+
+.container {
+  /* display: flex;
+  flex-direction: column; */
+  position: relative;
+}
+
+.main-container {
+  display: flex;
+  width: 700rpx;
+  flex-direction: column;
+  border-radius: 8px;
+  box-shadow: 0 4px 3px #e8e8e8;
+  background-color: white;
+  padding-bottom: 35rpx;
+}
+
+.prize-info-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+
+.prize-info-text {
+  display: flex;
+  flex-direction: column;
+  width: 450rpx;
+}
+
+.prize-title {
+  font-size: 26rpx;
+  color: #6f7475;
+}
+
+.prize-name {
+  font-size: 42rpx;
+  color: #2f2f2f;
+  margin-top: 10rpx;
+  font-weight: bold;
+  /* text-decoration: underline;
+  text-decoration-color: #5ee1c9;
+  text-decoration-line:  line-through;
+  text-decoration-style: 10px solid; */
+}
+
+.prize-info-container image {
+  width: 158rpx;
+  height: 158rpx;
+  margin-left: 30rpx;
+  border-radius:8px;
+}
+
+.countdown-container {
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  justify-content: center;
+  margin-top: 40rpx;
+}
+
+.join-button-container {
+  background-color: #5ee1c9;
+  box-shadow: 0 3px 2px #a4ddd3;
+  align-items: center;
+  margin: 50rpx 40rpx 0 40rpx;
+  border-radius: 25px;
+  text-align: center;
+  height: 75rpx;
+}
+
+.join-button-container text {
+  font-size: 36rpx;
+  line-height: 75rpx;
+  color: white;
+}
+
+.sub-container {
+  background-color: white;
+  border-radius: 8px;
+  width: 700rpx;
+  /* position: fixed;
+  bottom: 35rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx; */
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  box-shadow: 0 4px 3px #e8e8e8;
+  padding-top: 30rpx;
+  padding-bottom: 25rpx;
+  margin-top: 20rpx;
+}
+
+.sub-container text {
+  font-size: 26rpx;
+}
+
+.sub-container image {
+  border-radius: 50px;
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 300rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.sub-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+
+.sub-title text {
+  font-size: 24rpx;
+}
+
+.sub-title image {
+  background-color: #ddd;
+  width: 200rpx;
+  height: 1px;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+}
+
+.content-container {
+  position: fixed;
+  top: 460rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  display: block;
+}
+
+.rule-container {
+  position: fixed;
+  background-color: rgba(51, 51, 51, 0.2);
+  /* width: 130rpx; */
+  border-radius: 5px;
+  justify-content: center;
+  /* height: 42rpx; */
+  color: white;
+  font-size: 22rpx;
+  left: 150rpx;
+  /* line-height: 42rpx; */
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  padding-top: 15rpx;
+  padding-bottom: 15rpx;
+}
+
+.dialog-container {
+  position: fixed;
+  margin-left: 115rpx;
+  width: 520rpx;
+  top: 50%;
+  margin-top: -380rpx;
+}
+
+.dialog-rule-container image {
+  width: 45rpx;
+  height: 45rpx;
+  position: absolute;
+  right: 0rpx;
+  top: 0rpx;
+}
+
+.dialog-rule-container {
+  display: flex;
+  position: relative;
+  width: 520rpx;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30rpx;
+}
+
+.rule-header {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.rule-header text {
+  font-size: 32rpx;
+  font-weight: bolder;
+  margin-left: 5rpx;
+  margin-right: 5rpx;
+}
+
+.line {
+  height: 1px;
+  background-color: #bebebe;
+  width: 130rpx;
+  margin-top: 23rpx;
+}
+
+.dialog-rule-container text {
+  font-size: 26rpx;
+  color: #3a3a3a;
+  line-height: 50rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+}
+
+.button-container {
+  width: 210rpx;
+  text-align: center;
+  line-height: 70rpx;
+  height: 70rpx;
+  font-size: 32rpx;
+  border-style: solid;
+  border-color: #f75458;
+  border-width: 1px;
+  color: #f75458;
+  border-radius: 25px;
+}

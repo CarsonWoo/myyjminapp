@@ -1,0 +1,71 @@
+<view class='container'>
+  <image class='bg-image' src='/images/bg_prize.png' mode='widthFix' />
+  <!-- <view class='rule-container' bindtap='onRuleTap'>
+    活动规则
+  </view> -->
+  <view class='rule-container' style='position:fixed; top:260rpx;'>
+    <text>1.每人每天只有一次抽奖机会\n2.当天打卡到微信群即算参与抽奖\n3.次日中午12点自动开奖，微信服务通知\n    告知开奖结果\n4.本活动最终解释权归背呗背单词所有</text>
+  </view>
+  <view class='content-container'>
+    <view class='main-container'>
+
+      <view class='prize-info-container'>
+        <view class='prize-info-text'>
+          <text class='prize-title'>上期奖品</text>
+          <text class='prize-name'>{{prize}}</text>
+        </view>
+        <image src='{{prize_pic}}'></image>
+      </view>
+
+      <view class='result-container'>
+
+        <view class='result-header'>
+          <view class='line'></view>
+          <text>获奖名单</text>
+          <view class='line'></view>
+        </view>
+        <view class='result'>
+          <view class='userinfo'>
+            <image src='{{winner_1_portrait}}'></image>
+            <text>{{winner_1_name}}</text>
+          </view>
+          <view class='userinfo'>
+            <image src='{{winner_2_portrait}}'></image>
+            <text>{{winner_2_name}}</text>
+          </view>
+          <view class='userinfo'>
+            <image src='{{winner_3_portrait}}'></image>
+            <text>{{winner_3_name}}</text>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+    <view class='tips'>中奖的小伙伴快关注"背呗背单词"公众号，回复"中奖"与我们联系吧！</view>
+
+    <form report-submit='true' bindsubmit='onPostChance'>
+      <button class='join-button-container' bindtap='onJoinEvent' form-type='submit' style='color:white'>
+        马上参与今日活动
+      </button>
+    </form>
+
+  </view>
+
+
+</view>
+
+
+<view wx:if="{{isShowDialog}}" class='dialog-container'>
+
+  <view class='dialog-rule-container'>
+    <image src='/images/ic_close_gray.png' bindtap='onCloseDialog'></image>
+    <view class='rule-header'>
+      <view class='min-line'></view>
+      <text>活动规则</text>
+      <view class='min-line'></view>
+    </view>
+    <text>1.每人每天只有一次抽奖机会；\n2.当天打卡到微信群即算参与抽奖；\n3.次日中午12点自动开奖，微信服务通知告知开奖结果；\n4.本活动最终解释权归背呗背单词所有。</text>
+    <view class='button-container' bindtap='onCloseDialog'>确定</view>
+  </view>
+</view>
