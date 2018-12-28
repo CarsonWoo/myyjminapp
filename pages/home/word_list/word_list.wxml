@@ -1,0 +1,23 @@
+<view class='container'>
+
+  <view class='tab-bar-container'>
+    <text style="color:{{selectedPage == 1?'#5ee1c9':'#999999'}}" catchtap='onSelectPage' id='1'>已背单词</text>
+    <text style="color:{{selectedPage == 2?'#5ee1c9':'#999999'}}" catchtap='onSelectPage' id='2'>已掌握单词</text>
+    <text style="color:{{selectedPage == 3?'#5ee1c9':'#999999'}}" catchtap='onSelectPage' id='3'>未背单词</text>
+  </view>
+
+  <label>单词总数：{{word_list.length}}</label>
+
+  <view class='word-list-container'>
+    <block wx:for="{{word_list}}">
+      <view class='word-container'>
+        <text class='word'>{{item.word}}</text>
+        <text class='meaning'>{{item.meaning}}</text>
+      </view>
+    </block>
+  </view>
+  <view class='load-more-container' wx:if="{{selectedPage == 1 || selectedPage == 2}}" bindtap='onLoadMore'>
+    <text>{{loadEnd?"没有更多了":"加载更多"}}</text>
+  </view>
+
+</view>
