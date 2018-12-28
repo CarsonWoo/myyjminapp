@@ -1,0 +1,21 @@
+<view class='container'>
+  <image class='header-image' mode='widthFix' src='{{pic}}'></image>
+  <view style='margin-left:24rpx;margin-top:55rpx;margin-bottom:55rpx;'>
+    <text class='title'>{{title}}</text>
+  </view>
+
+  <view class='author-container'>
+    <image src='{{author_portrait}}'></image>
+    <text>{{author_username}}</text>
+  </view>
+  <view class='content-container'>
+    <block wx:for="{{order}}">
+      <rich-text wx:if="{{item.type == '0'}}" nodes="{{item.paragraph}}"></rich-text>
+      <image wx:else mode='widthFix' src='{{item.pic}}'></image>
+    </block>
+  </view>
+  <view class='button-container' bindtap='onLikeTap' animation="{{animation}}">
+    <text style='font-size:64rpx;line-height:144rpx;color:white'>赞</text>
+    <!-- <text style='font-size:22rpx'>{{likes}}</text> -->
+  </view>
+</view>
