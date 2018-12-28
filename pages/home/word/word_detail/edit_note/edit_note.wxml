@@ -1,0 +1,18 @@
+<view class='container'>
+  <view class='word-container'>
+    <text class='word'>{{word}}</text>
+    <text class='word-symbol'>{{word_symbol}}</text>
+  </view>
+  <view class='note-container'>
+    <view class='title-container'>
+      <image src='/images/ic_edit.png' />
+      <label>笔记</label>
+      <text>{{currentLength}}/800</text>
+    </view>
+    <textarea placeholder='请输入该单词的笔记' bindinput='onEditChange' value='{{value}}' focus='true'></textarea>
+  </view>
+
+  <view class='button-container' bindtap='onSubmitTap'>
+    <text>提交</text>
+  </view>
+</view>
